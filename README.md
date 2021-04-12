@@ -4,5 +4,5 @@
 
 |       | 文件名      | 文章          |
 |-------|---------------------|----------------|
-| hidescrollbar  | hidescrollbar.js                  | 较长             |
-|   | hidescrollbar.css                  | -             |
+| hidescrollbar  | 自动隐藏滚动条                  | 较长             |
+| 3dCard  | 三维卡片                  | 较长             |
