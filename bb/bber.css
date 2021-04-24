@@ -142,7 +142,6 @@
   border-radius: 8px;
   background: var(--card-bg);
   content: "";
-  background-image: url(https://cdn.jsdelivr.net/gh/zhheo/Guli@0.6/img/avatar.png);
   background-size: 2rem;
 }
 
