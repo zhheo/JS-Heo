@@ -9,6 +9,7 @@
 | bb  | 短文哔哔                  | [Hexo的Butterfly适配个人动态（哔哔 for 腾讯云），在博客上发朋友圈](https://blog.zhheo.com/p/27be0e44.html)             |不需要|
 | qrcode  | 二维码生成                  | [根据当前页面地址生成二维码，给当前页面增加手机浏览功能](https://blog.zhheo.com/p/88b8beba.html)             |不需要|
 | privacy  | 获取ip和ua                  | [js获取用户IP和地理位置信息、UA并展示](https://blog.zhheo.com/p/70bd84fc.html)             |不需要|
+| 404  | 404样式                  | [Butterfly魔改：404页面展示最近文章](https://blog.zhheo.com/p/f48e518b.html)             |需要|
 
 ## MainColor
 
