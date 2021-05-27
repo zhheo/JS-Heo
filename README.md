@@ -11,7 +11,7 @@
 | privacy  | 获取ip和ua                  | [js获取用户IP和地理位置信息、UA并展示](https://blog.zhheo.com/p/70bd84fc.html)             |不需要|
 | 404  | 404样式                  | [Butterfly魔改：404页面展示最近文章](https://blog.zhheo.com/p/f48e518b.html)             |需要|
 | about-tips  | 关于本站标题                  | 暂无教程             |需要|
-| poem  | 今日诗词侧边栏组件                  | 暂无教程             |需要|
+| poem  | 今日诗词侧边栏组件                  | [Butterfly美化：今日诗词侧边栏小组件，中国传统诗词文化](https://blog.zhheo.com/p/2ed9d8dd.html)             |需要|
 
 ## MainColor
 
