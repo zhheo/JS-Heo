@@ -35,7 +35,7 @@ var generateBBHtml = array => {
     if (array.length) {
       for (let i = 0; i < array.length; i++) {
         var itemcontent = array[i].content
-        var newitemcontent = itemcontent.replace(/(https?:[^:<>"]*\/)([^:<>"]*)(\.((png!thumbnail)|(png)|(jpg)|(webp)|(jpeg)|(gif)|(@blogimg)))/g,' [图片] ')
+        var newitemcontent = itemcontent.replace(/(https?:[^:<>"]*\/)([^:<>"]*)(\.((png!thumbnail)|(png)|(jpg)|(webp)|(jpeg)|(gif))(!blogimg)?)/g,' [图片] ')
         result += `<div class='li-style swiper-slide'>${newitemcontent}</div>`;
       }
     } else {
