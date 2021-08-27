@@ -36,3 +36,9 @@ ul,li{
   cursor: pointer;
   display: flex;
 }
+
+#bbtalk{
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
