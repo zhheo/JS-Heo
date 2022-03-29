@@ -35,6 +35,7 @@
   --heo-background: #f7f9fe;
   --heo-reverse: #000;
   --heo-maskbg: rgba(255, 255, 255, 0.6);
+  --heo-maskbgdeep: rgba(255, 255, 255, 0.85);
   --heo-hovertext: var(--heo-theme);
   --heo-ahoverbg: #F7F7FA;
   --heo-lighttext: var(--heo-main);
@@ -62,6 +63,7 @@
   --heo-background: #18171d;
   --heo-reverse: #fff;
   --heo-maskbg: rgba(0,0,0, 0.6);
+  --heo-maskbgdeep: rgba(0,0,0, 0.85);
   --heo-hovertext: #0A84FF;
   --heo-ahoverbg: #fff;
   --heo-lighttext: #f2b94b;
