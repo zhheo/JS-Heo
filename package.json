@@ -1,0 +1,19 @@
+{
+  "name": "js-heo",
+  "version": "1.0.2",
+  "description": "小js文件仓库，按需要的自取",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhheo/JS-Heo.git"
+  },
+  "author": "zhheo",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/zhheo/JS-Heo/issues"
+  },
+  "homepage": "https://github.com/zhheo/JS-Heo#readme"
+}
