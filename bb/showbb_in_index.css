@@ -16,11 +16,11 @@
   transition: 0.3s;
 }
 
-.li-style:hover{
+#bber-talk .li-style:hover{
   color: #49b1f5;
 }
 
-ul,li{
+#bber-talk ul,li{
   list-style:none;
   display:block;
   margin: 0;
