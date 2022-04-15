@@ -1,3 +1,5 @@
+console.log("右键菜单测试中");
+
 // 初始化函数
 let rm = {};
 
@@ -46,7 +48,8 @@ window.oncontextmenu = function(event){
     //其他额外菜单
     let $rightMenuOther = $('.rightMenuOther');
     let $rightMenuPlugin = $('.rightMenuPlugin');
-    let $rightMenuCopyButton = $('#menu-copytext');
+    let $rightMenuCopyText = $('#menu-copytext');
+    let $rightMenuCommentText = $('#menu-commenttext');
     let $rightMenuNewWindow = $('#menu-newwindow');
     let $rightMenuCopyLink = $('#menu-copylink');
     let $rightMenuCopyImg = $('#menu-copyimg');
@@ -63,12 +66,14 @@ window.oncontextmenu = function(event){
     // 检查是否需要复制 是否有选中文本
     if(selectTextNow && window.getSelection()){
       pluginMode = true;
-      $rightMenuCopyButton.show();
+      $rightMenuCopyText.show();
+      $rightMenuCommentText.show();
       $rightMenuSearch.show();
       $rightMenuSearchBaidu.show();
       $rightMenuOther.hide();
     }else{
-      $rightMenuCopyButton.hide();
+      $rightMenuCopyText.hide();
+      $rightMenuCommentText.hide();
       $rightMenuSearchBaidu.hide();
       $rightMenuSearch.hide();
     }
@@ -267,6 +272,26 @@ function selceText(){
     }
 }
 
+//引用到评论
+rm.rightMenuCommentText = function(txt){
+  rm.hideRightMenu();
+  var input = document.getElementsByClassName('el-textarea__inner')[0];
+  let evt = document.createEvent('HTMLEvents');
+  evt.initEvent('input', true, true);
+  let inputValue = replaceAll(txt,'\n','\n> ')
+  input.value = '> ' + inputValue + '\n\n';
+  input.dispatchEvent(evt);
+  var domTop = document.querySelector("#post-comment").offsetTop;
+  window.scrollTo(0,domTop - 80);
+  input.focus();
+  input.setSelectionRange(-1,-1);
+}
+
+//替换所有内容
+function replaceAll(string, search, replace) {
+  return string.split(search).join(replace);
+}
+
 function addRightMenuClickEvent(){
   // 添加点击事件
   $('#menu-backward').on('click',function(){window.history.back();rm.hideRightMenu();});
@@ -287,6 +312,7 @@ function addRightMenuClickEvent(){
   });
   $('#menu-copy').on('click', rm.copyPageUrl);
   $('#menu-copytext').on('click',function(){rm.rightmenuCopyText(selectTextNow);btf.snackbarShow('复制成功，复制和转载请标注本文地址');});
+  $('#menu-commenttext').on('click',function(){rm.rightMenuCommentText(selectTextNow);});
   $('#menu-newwindow').on('click',function(){window.open(domhref);rm.hideRightMenu();});
   $('#menu-copylink').on('click',function(){rm.rightmenuCopyText(domhref);btf.snackbarShow('已复制链接地址');});
   $('#menu-downloadimg').on('click',function(){downloadImage(domImgSrc,'zhheo');});
