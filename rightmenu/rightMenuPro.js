@@ -1,5 +1,3 @@
-console.log("右键菜单测试中");
-
 // 初始化函数
 let rm = {};
 
@@ -162,34 +160,38 @@ function downloadImage(imgsrc, name) {//下载图片地址和图片名
 rm.writeClipImg = function (imgsrc) {
   console.log('按下复制');
   rm.hideRightMenu();
-  Snackbar.show({text: '正在下载中，请稍后',duration: 10000,pos: 'top-center',showAction: false});
+  Snackbar.show({text: '正在下载中，请稍后...',duration: 10000,pos: 'top-center',showAction: false});
   if(rm.downloadimging == false){
     setTimeout(function(){
+      copyImage(imgsrc);
       btf.snackbarShow('复制成功！图片已添加盲水印，请遵守版权协议')
-      writeDataToClipboard(imgsrc);
     },"10000")
   }
-  
 }
 
-async function createImageBlob(url) {
-  const response = await fetch(url);
-  return await response.blob();
+function imageToBlob(imageURL) {
+  const img = new Image;
+  const c = document.createElement("canvas");
+  const ctx = c.getContext("2d");
+  img.crossOrigin = "";
+  img.src = imageURL;
+  return new Promise(resolve => {
+    img.onload = function () {
+      c.width = this.naturalWidth;
+      c.height = this.naturalHeight;
+      ctx.drawImage(this, 0, 0);
+      c.toBlob((blob) => {
+        // here the image is a blob
+        resolve(blob)
+      }, "image/png", 0.75);
+    };
+  })
 }
 
-async function writeDataToClipboard(url) {
-    if (navigator.clipboard && navigator.clipboard.write) {
-        const imageBlob = await createImageBlob(url);
-        try {
-          const item = new ClipboardItem({
-            [imageBlob.type]: imageBlob,
-          });
-          await navigator.clipboard.write([item]);
-          console.log("图像复制成功");
-        } catch (error) {
-          console.error("图像复制失败", error);
-        }
-      }
+async function copyImage(imageURL){
+  const blob = await imageToBlob(imageURL)
+  const item = new ClipboardItem({ "image/png": blob });
+  navigator.clipboard.write([item]);
 }
 
 rm.switchDarkMode = function(){
