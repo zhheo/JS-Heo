@@ -1,6 +1,6 @@
 {
   "name": "js-heo",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "小js文件仓库，按需要的自取",
   "main": "index.js",
   "scripts": {
