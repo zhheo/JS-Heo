@@ -129,7 +129,7 @@ function downloadImage(imgsrc, name) {//下载图片地址和图片名
   rm.hideRightMenu();
   if (rm.downloadimging == false) {
     rm.downloadimging = true;
-    Snackbar.show({text: '正在下载中，请稍后',duration: 10000,pos: 'top-center',showAction: false});
+    btf.snackbarShow('正在下载中，请稍后',false,10000)
     setTimeout(function(){
       let image = new Image();
       // 解决跨域 Canvas 污染问题
@@ -160,11 +160,13 @@ function downloadImage(imgsrc, name) {//下载图片地址和图片名
 rm.writeClipImg = function (imgsrc) {
   console.log('按下复制');
   rm.hideRightMenu();
-  Snackbar.show({text: '正在下载中，请稍后...',duration: 10000,pos: 'top-center',showAction: false});
+  btf.snackbarShow('正在下载中，请稍后',false,10000)
   if(rm.downloadimging == false){
+    rm.downloadimging = true;
     setTimeout(function(){
       copyImage(imgsrc);
-      btf.snackbarShow('复制成功！图片已添加盲水印，请遵守版权协议')
+      btf.snackbarShow('复制成功！图片已添加盲水印，请遵守版权协议');
+      rm.downloadimging = false;
     },"10000")
   }
 }
