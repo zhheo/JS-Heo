@@ -51,7 +51,9 @@ window.addEventListener('load', () => {
       const searchInput = document.querySelector('#algolia-search-input input')
 
       if (searchInput.value) {
-        helper.search()
+        let innerLoading = '<div class="fa fa-spinner fa-spin"></div>';
+        document.getElementById("algolia-hits").innerHTML=innerLoading;
+        helper.search();
       }
     }
   })
@@ -135,8 +137,6 @@ window.addEventListener('load', () => {
   $('#menu-search').on('click',function(){
     rm.hideRightMenu();
     openSearch();
-    let innerLoading = '<div class="fa fa-spinner fa-spin"></div>';
-    document.getElementById("algolia-hits").innerHTML=innerLoading;
     let t=document.getElementsByClassName('ais-search-box--input')[0];
     let evt = document.createEvent('HTMLEvents');
     evt.initEvent('input', true, true);
