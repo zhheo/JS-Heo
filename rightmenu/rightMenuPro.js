@@ -196,23 +196,10 @@ async function copyImage(imageURL){
   navigator.clipboard.write([item]);
 }
 
-rm.switchDarkMode = function(){
-    rm.hideRightMenu();
-    const nowMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
-    if (nowMode === 'light') {
-        activateDarkMode()
-        saveToLocal.set('theme', 'dark', 2)
-        GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night)
-    } else {
-        activateLightMode()
-        saveToLocal.set('theme', 'light', 2)
-        GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day)
-    }
-    // handle some cases
-    typeof utterancesTheme === 'function' && utterancesTheme()
-    typeof FB === 'object' && window.loadFBComment()
-    window.DISQUS && document.getElementById('disqus_thread').children.length && setTimeout(() => window.disqusReset(), 200)
-};
+rm.switchDarkMode = function() {
+  navFn.switchDarkMode();
+  rm.hideRightMenu();
+}
 
 rm.copyUrl = function(id) {
     $("body").after("<input id='copyVal'></input>");
@@ -254,7 +241,7 @@ rm.rightmenuCopyText = function(txt){
 rm.copyPageUrl = function(){
   var url = window.location.href;
   rm.copyUrl(url);
-  btf.snackbarShow('复制本页链接地址成功');
+  btf.snackbarShow('复制本页链接地址成功',false,2000);
   rm.hideRightMenu();
 }
 
@@ -296,6 +283,15 @@ function replaceAll(string, search, replace) {
   return string.split(search).join(replace);
 }
 
+// 百度搜索
+rm.searchBaidu = function(){
+  btf.snackbarShow('即将跳转到百度搜索',false,2000);
+  setTimeout(function(){
+    window.open('https://www.baidu.com/s?wd=' + selectTextNow);
+  }, "2000");
+  rm.hideRightMenu();
+}
+
 function addRightMenuClickEvent(){
   // 添加点击事件
   $('#menu-backward').on('click',function(){window.history.back();rm.hideRightMenu();});
@@ -321,11 +317,5 @@ function addRightMenuClickEvent(){
   $('#menu-copylink').on('click',function(){rm.rightmenuCopyText(domhref);btf.snackbarShow('已复制链接地址');});
   $('#menu-downloadimg').on('click',function(){downloadImage(domImgSrc,'zhheo');});
   $('#menu-copyimg').on('click',function(){rm.writeClipImg(domImgSrc);});
-  $('#menu-searchBaidu').on('click',function(){
-    btf.snackbarShow('即将跳转到百度搜索');
-    setTimeout(function(){
-      window.open('https://www.baidu.com/s?wd=' + selectTextNow);
-    }, "2000");
-    rm.hideRightMenu();
-  });
+  $('#menu-searchBaidu').on('click',rm.searchBaidu);
 }

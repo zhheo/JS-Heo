@@ -135,11 +135,13 @@ window.addEventListener('load', () => {
   $('#menu-search').on('click',function(){
     rm.hideRightMenu();
     openSearch();
+    let innerLoading = '<div class="fa fa-spinner fa-spin"></div>';
+    document.getElementById("algolia-hits").innerHTML=innerLoading;
     let t=document.getElementsByClassName('ais-search-box--input')[0];
     let evt = document.createEvent('HTMLEvents');
     evt.initEvent('input', true, true);
     t.value=selectTextNow;
-    t.dispatchEvent(evt)
+    t.dispatchEvent(evt);
   });
 
   window.pjax && search.on('render', () => {
