@@ -15,6 +15,7 @@
 | categoryBar  | 分类条                  | [Butterfly魔改：动态分类条，可以根据页面变化而改变的分类列表展示方式](https://blog.zhheo.com/p/bc61964d.html)             |需要|
 | rightmenu  | 右键菜单                  | [Butterfly魔改：自定义右键菜单](https://blog.zhheo.com/p/5e931b65.html)             |需要|
 | moments  | 友链朋友圈                  | [鱼塘DLC：你钓到了一篇惊世好文！](https://blog.zhheo.com/p/908df4e2.html)             |需要|
+| tag-link  | 外挂标签：链接卡片                  | [Butterfly魔改：网址外挂标签](https://blog.zhheo.com/p/ccaf9148.html)             |需要|
 
 ## MainColor
 
