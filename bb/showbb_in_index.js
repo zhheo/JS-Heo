@@ -35,7 +35,7 @@ var generateBBHtml = array => {
     if (array.length) {
       for (let i = 0; i < array.length; i++) {
         var itemcontent = array[i].content
-        var newitemcontent = itemcontent.replace(/(https?:[^:<>"]*\/)([^:<>"]*)(\.((png!thumbnail)|(png)|(jpg)|(webp)|(jpeg)|(gif))(!blogimg)?)/g,' [图片] ')
+        var newitemcontent = itemcontent.replace(/(https?:[^:<>"]*\/)([^:<>"]*)(\.((png!thumbnail)|(png)|(jpg)|(webp)|(jpeg)|(gif)))/g,' [图片] ')
         result += `<div class='li-style swiper-slide'>${newitemcontent}</div>`;
       }
     } else {
@@ -50,9 +50,10 @@ var generateBBHtml = array => {
       direction: 'vertical', // 垂直切换选项
       loop: true,
       autoplay: {
-      delay: 3000,
-      disableOnInteraction: true,
-  },
+        delay: 3000,
+        disableOnInteraction: true,
+        pauseOnMouseEnter: true,
+      },
   });
   }
 var bbInit = () => {
